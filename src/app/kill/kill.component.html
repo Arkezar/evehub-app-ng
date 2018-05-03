@@ -1,0 +1,26 @@
+<td>
+  <!-- time -->
+  {{kill.killTime | date: 'yyyy/MM/dd hh:mm'}}
+</td>
+<td>
+  <!-- victim -->
+  <img src="{{getCorpIcon(kill.victimCorpId)}}">
+</td>
+<td>
+  <!-- killer -->
+  <img src="{{getCorpIcon(kill.finalCorpId)}}">
+</td>
+<td>
+  <!-- destroyed -->
+  <span>
+    <img src="{{shipIcon}}"> {{kill.shipType}}
+  </span>
+</td>
+<td>
+  <!-- solar system -->
+  {{kill.solarSystem}}
+</td>
+<td align="right">
+  <!-- lost isk -->
+  {{kill.iskLost | currency}}
+</td>

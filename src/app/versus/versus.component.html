@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="offset-md-1 col-md-4" corp-selector [name]="'baseCorp'" [default]="'true'" (onCorpSelected)="onCorpSelected($event)"></div>
+    <div class="col-md-2">
+        <img src="assets/VS.png" style="width: 4vh; height: auto;" />
+    </div>
+    <div class="col-md-4" corp-selector [name]="'versusCorp'" (onCorpSelected)="onCorpSelected($event)"></div>
+</div>
+<div class="row">
+    <div class="offset-md-5 col-md-2">
+        <button (click)="onClickVersus()">GO!</button>
+    </div>
+</div>
+<div class="row">
+    <table class="table-borderless col-md-12">
+        <thead class=".thead-light">
+            <tr>
+                <th style="width: 15%">
+                    Time
+                </th>
+                <th style="width: 10%">
+                    Victim
+                </th>
+                <th style="width: 10%">
+                    Killer
+                </th>
+                <th style="width: 40%">
+                    Destroyed
+                </th>
+                <th style="width: 10%">
+                    Solar system
+                </th>
+                <th style="width: 15%">
+                    ISK Lost
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr [ngClass]="{'table-success': kill.finalCorpId == baseCorpId, 'table-danger': kill.victimCorpId == baseCorpId}" *ngFor="let kill of kills | async" [kill]="kill" app-kill></tr>
+        </tbody>
+    </table>
+</div>
